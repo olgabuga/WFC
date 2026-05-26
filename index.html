@@ -203,10 +203,7 @@
                 1.Viene letta la bitmap di input e vengono contati i modelli presenti all'interno della bitmap<br>
                 2.Viene creato un array con le dimensioni dell'output desiderato<br>
                 3.Ogni cella dell'array è inizializzata in uno stato ‘non osservato’.<br>
-                4.Si ripetono i seguenti passaggi<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Si trova la cella con il minor numero di stati di uscita possibili <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;‘Collassare’ questa cellula in uno dei suoi possibili stati secondo le regole <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Controlla che tutte le celle siano ancora valide e segui le regole<br>
+                4.Si ripetono i seguenti passaggi Controlla che tutte le celle siano ancora valide e segui le regole<br>
                 5.Una volta che tutte le celle sono ‘collassate’ in uno stato definito, restituire l'output. <br>
                 Se l'output è illegale, scartalo e ripeti il processo fino a quando non sarà legale.
                 </p>
@@ -225,37 +222,33 @@
                    L'approccio di Merrell esegue l'algoritmo in blocchi, piuttosto che all-at-once. Questo approccio riduce 
                    notevolmente il tasso di guasto per molti modelli complessi di grandi dimensioni; soprattutto in uno spazio 3D.
                 </p>
-                <iframe scrolling=no frameborder=0 height=500 src="./sketch/index.html"></iframe>
-            </div>
+                        </div>
         </section>
 
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Teoria dell’informazione:</h4><h2>Entropia</h2></div>
-            <div class="contenuto-sezione">
-                <p>
-                Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
-                imprevedibile maggiore è la sua entropia. Se un evento è certo la sua entropia è zero.
-                Il termine COLLASSO nel concetto dell’entropia consiste nel ridurre tutti gli stati possibili in uno solo.
-                rimuovendo tutta l’entropia da una singola variabile del sistema.
-                Man mano che le celle collassano e il loro stato risulta in una sola opzione l’entropia si riduce per tutte le
-                celle vicine dando la possibilità di faire delle ipotesi e continuare a ridurre le opzioni facendo “collassare” le
-                celle fino ad aver portato l’entropia a zero (tutto è definito).
-                </p>
-            </div>
         </section>
 
         <section class="filetto">
             <div class="titolo-sezione"><h4>Algoritmo:</h4><h2>Come funziona?</h2></div>
             <div class="contenuto-sezione">
                 <p>
+                    Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
+                imprevedibile maggiore è la sua entropia. Se un evento è certo la sua entropia è zero.
+                Il termine COLLASSO nel concetto dell’entropia consiste nel ridurre tutti gli stati possibili in uno solo.
+                rimuovendo tutta l’entropia da una singola variabile del sistema.
+                Man mano che le celle collassano e il loro stato risulta in una sola opzione l’entropia si riduce per tutte le
+                celle vicine dando la possibilità di faire delle ipotesi e continuare a ridurre le opzioni facendo “collassare” le
+                celle fino ad aver portato l’entropia a zero (tutto è definito).
                     Il processo di risoluzione del sudoku é lo stesso alla base del WFC, si parte da un insieme di tessere,
                     molte delle quali già collassate e si cerca nella con la minore entropia. 
                     Trovata la casella con l’entropia più bassa (1) si può continuare cercando progressivamente 
-                    le caselle con minor entropia fino ad averla portata tutta a zero.<br>
-                    Ci sono due modelli con cui affrontare il WFC:<br>
+                    le caselle con minor entropia fino ad averla portata tutta a zero.
+                    Ci sono due modelli con cui affrontare il WFC:
                     “Tile Model” e “Overlapping Model”
                 </p>
             </div>
+            <div class="blocco-immagini-destra">
+                            <div class="tessera-box"><img src="./immagini_tiles/sudoku_01.png" alt="Tessera 1"></div>
+                            <div class="tessera-box"><img src="./immagini_tiles/sudoku_02.png" alt="Tessera 1"></div>
         </section>
 
         <section id="tile-model" class="filetto">
@@ -309,6 +302,7 @@
                             due tessere possono essere adiacenti se, ad esempio, le ultime due colonne della tessera a sinistra si sovrappongono perfettamente 
                             alle prime due colonne della tessera di destra (lo stesso vale per sinistra, sopra e sotto).
                         </p>
+                                        <iframe scrolling="no" frameborder="0" height=500 src="./assets/sketches/wfc/"></iframe>
                     </div>
                     
                     <div class="blocco-immagini-destra orizzontale">
@@ -330,15 +324,6 @@
                     <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_09.png" alt="Tessera 9"></div>
                 </div>
 
-            </div>
-        </section>
-
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Esempi:</h4><h2>Videogiochi</h2></div>
-            <div class="contenuto-sezione">
-                <p>
-                QUI ESEMPIO DI VIDEOGIOCHI CHE USANO IL WFC, AD ESEMPIO:
-                </p>
             </div>
         </section>
 

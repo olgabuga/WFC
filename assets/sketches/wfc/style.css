@@ -1,0 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: transparent; /* Forza lo sfondo della pagina a essere trasparente */
+}
+
+canvas {
+  display: block; /* Rimuove spazi vuoti indesiderati sotto la canvas */
+}
