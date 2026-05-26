@@ -312,3 +312,27 @@ a:hover { color: var(--accent-glow); border-bottom-color: var(--accent-glow); }
     .composizioni-grandi { flex-direction: row; width: 100%; }
     .composizione-box { width: 100px; }
 }
+/* Contenitore: prende tutto lo spazio orizzontale disponibile */
+.riga-unica-immagini {
+    display: flex;
+    width: 100%;
+    gap: 8px;                 /* Spazio uniforme tra i quadrati */
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+/* Forza i box a essere identici tra loro e perfettamente quadrati */
+.riga-unica-immagini .tessera-box {
+    flex: 1;                  /* Divide lo spazio orizzontale in parti esattamente uguali */
+    min-width: 0;             /* Impedisce alle immagini di rompere il layout flex */
+    aspect-ratio: 1 / 1;      /* REGOLA CHIAVE: Altezza sempre uguale alla larghezza (Quadrato) */
+}
+
+/* Gestione delle immagini interne per evitare distorsioni */
+.riga-unica-immagini .tessera-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* Riempie il quadrato e taglia i bordi in eccesso senza deformare l'immagine */
+    display: block;
+    border-radius: 4px;       /* Arrotonda leggermente gli angoli (opzionale) */
+}
