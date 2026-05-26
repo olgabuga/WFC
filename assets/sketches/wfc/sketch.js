@@ -14,7 +14,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(200, 200);
+  createCanvas(600, 600);
 
   // Extract tiles and calculate their adjacencies
   tiles = extractTiles(sourceImage);
