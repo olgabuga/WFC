@@ -174,6 +174,10 @@ come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in 
         </div>
         <div class="contenuto-sezione">
             <p>
+                L'entropia misura la quantità di incertezza, casualità o sorpresa associata a una variabile casuale: più un evento è 
+                imprevedibile, maggiore è la sua entropia. Se un evento è matematicamente certo, la sua entropia è pari a zero.
+
+Nel campo della teoria dell'informazione, questo concetto viene quantificato attraverso la formula dell'Entropia di Shannon:
                 Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
                 imprevedibile maggiore è la sua entropia. Se un evento è certo la sua entropia è zero.
                 Il termine COLLASSO nel concetto dell'entropia consiste nel ridurre tutti gli stati possibili in uno solo,
@@ -232,11 +236,13 @@ come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in 
         <div class="contenuto-sezione">
             <p>
                 La caratteristica principale del "overlapping model" è l'assenza di tessere predefinite,
-                tutto quello che serve è un'immagine sorgente che l'algoritmo analizzerà e ne ricaverà delle tessere
+                tutto quello che serve è un'immagine sorgente che l'algoritmo analizzerà e ne ricaverà a sua volta delle tessere
                 per poi osservare come appaiono uno vicino all'altro i pixel nell'immagine originale e provare a
-                creare una nuova immagine con lo stesso stile. In questo caso per creare le tessere l'algoritmo prenderà
-                una sezione di tre pixel dall'immagine e la renderà una tessera (nel caso di un'immagine sorgente di 9×9
-                pixel si otterranno poi 81 tessere).
+                creare una nuova immagine con lo stesso stile.
+                In questo caso per creare le tessere l'algoritmo analizza l'immagine e la seziona in sotto-matrici quadrate di dimensione N X N px 
+                 (solitamente 2 X 2 o 3 X 3) e le rende delle tessera (nel caso di un'immagine sorgente di 9×9
+                pixel si otterranno poi 81 tessere).<br>
+                <br>
                 L'overlapping model per creare l'immagine utilizza appunto il metodo della sovrapposizione per trovare le adiacenze
                 nelle tessere: due tessere possono essere adiacenti se, ad esempio, le ultime due colonne della tessera a sinistra
                 si sovrappongono perfettamente alle prime due colonne della tessera di destra
