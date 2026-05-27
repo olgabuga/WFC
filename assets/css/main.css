@@ -145,26 +145,45 @@ body {
     z-index: 2;
 }
 
+/* HEADER */
 header {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    text-align: right;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
+    gap: 0.5rem;
     margin-bottom: 5rem;
     padding-top: 1.5rem;
     position: relative;
 }
 
-header h1 {
-    margin: 0 0 0.2em 0;
+header .titolo-sezione {
+    position: static;
+    width: auto;
+    justify-self: end;
+    text-align: right;
+}
+
+header .titolo-sezione h1 {
+    display: inline-block;
+    margin: 0;
+    width: auto;
+    max-width: 100%;
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.1;
+    text-align: right;
     background: linear-gradient(to right, #fff, var(--text-muted));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    width: 100%;
+}
+
+header .contenuto-sezione {
+    width: auto;
+    justify-self: end;
+    align-items: flex-end;
+    text-align: right;
+    gap: 0.35rem;
 }
 
 header p {
@@ -173,6 +192,27 @@ header p {
     color: var(--text-muted);
     font-size: 0.90rem;
     font-weight: 500;
+}
+
+.contenuto-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.link-github-header {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--accent);
+    text-decoration: none;
+    width: fit-content;
+}
+
+.link-github-header:hover {
+    color: var(--accent-glow);
+    border-bottom-color: var(--accent-glow);
 }
 
 h2 {
@@ -193,13 +233,15 @@ h4 {
     color: var(--accent-glow);
 }
 
-header, section {
+/* SEZIONI */
+section {
     display: grid;
     grid-template-columns: 1.2fr 3fr;
     gap: 2.5rem;
     margin-bottom: 5rem;
     padding-top: 1.5rem;
     position: relative;
+    align-items: start;
 }
 
 section::before {
@@ -243,6 +285,25 @@ a {
 a:hover {
     color: var(--accent-glow);
     border-bottom-color: var(--accent-glow);
+}
+
+.contenuto-sezione {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    gap: 1rem;
+}
+
+.contenuto-sezione > p {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    text-align: left;
+    align-self: stretch;
+    line-height: 1.6;
 }
 
 .contenuto-sezione.con-griglia-tessere {
@@ -302,7 +363,7 @@ a:hover {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .tessera-box {
@@ -313,6 +374,13 @@ a:hover {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(244,241,241,0);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.tessera-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .tessera-box--sudoku {
@@ -328,30 +396,27 @@ a:hover {
     align-items: flex-start;
 }
 
-/* Riga composizioni base */
 .riga-composizioni {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 0.75rem;
-    margin-top: 1rem;
+    margin-top: 0;
     width: 100%;
 }
 
-/* Thumbnails overlapping tutte su una riga */
 .thumbnails--nowrap {
     flex-wrap: nowrap !important;
     overflow-x: auto;
     padding-bottom: 0.5rem;
 }
 
-/* 3 immagini overlapping in riga e allineate in alto */
 .riga-composizioni--small {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 0.75rem;
-    margin-top: 1rem;
+    margin-top: 0;
     width: 100%;
 }
 
@@ -377,7 +442,21 @@ a:hover {
 }
 
 @media only screen and (max-width: 950px) {
-    header, section {
+    header {
+        justify-items: start;
+    }
+
+    header .titolo-sezione,
+    header .contenuto-sezione {
+        justify-self: start;
+        text-align: left;
+    }
+
+    .contenuto-header {
+        align-items: flex-start;
+    }
+
+    section {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
