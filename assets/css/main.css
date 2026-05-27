@@ -506,19 +506,3 @@ a:hover {
         flex: 0 0 170px;
     }
 }
-/* Impedisce al box-sizing globale di rompere il rendering dei glifi matematici */
-.MathJax, .MathJax * {
-    box-sizing: content-box !important;
-}
-/* Stile per il blocco della formula nativa MathML */
-.formula-shannon-container {
-    margin: 40px 0;
-    text-align: center;
-    width: 100%;
-}
-
-.formula-shannon-container math {
-    font-size: 1.6rem;
-    color: var(--color-bianco);
-    font-family: inherit;
-}
