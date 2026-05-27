@@ -54,7 +54,7 @@
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Sintesi del modello:</h4>
-            <h2>Che cos'è?</h2>
+            <h2>Che cos’è?</h2>
         </div>
         <div class="contenuto-sezione">
             <p>
@@ -108,16 +108,18 @@ come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in 
      errore strutturale a un'estremità della mappa costringerebbe l'algoritmo a cancellare l'intera città e ricominciare da capo. 
      Merrell ha risolto il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
 <br>
-1.  L'algoritmo genera il Blocco A.<br>
-<br>
-2.  Quando passa al Blocco B (adiacente al Blocco A), usa i confini finali del Blocco A come vincoli di partenza (input).<br>
-<br>
-3.  In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br>
-<br>
-La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
- un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
- tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.
 
+1. L'algoritmo genera il Blocco A.<br>
+<br>
+2. Quando passa al Blocco B (adiacente al Blocco A), usa i confini finali del Blocco A come vincoli di partenza (input).<br></li>
+<br>
+3. In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br></li>
+<br>
+
+
+ La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
+ un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
+ tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.<br>
             </p>
         </div>
         <div class="col-immagini"></div>
@@ -130,12 +132,36 @@ La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era poss
         </div>
         <div class="contenuto-sezione">
             <p>
-                1. Viene letta la bitmap di input e vengono contati i modelli presenti all'interno della bitmap<br>
-                2. Viene creato un array con le dimensioni dell'output desiderato<br>
-                3. Ogni cella dell'array è inizializzata in uno stato 'non osservato'.<br>
-                4. Si ripetono i seguenti passaggi: controlla che tutte le celle siano ancora valide e segui le regole<br>
-                5. Una volta che tutte le celle sono 'collassate' in uno stato definito, restituire l'output.<br>
-                Se l'output è illegale, scartalo e ripeti il processo fino a quando non sarà legale.
+                Se la "Sintesi del Modello" di Paul Merrell ha gettato le basi accademiche per la generazione procedurale 
+                guidata da vincoli, è stato il programmatore russo Maxim Gumin (noto online con lo pseudonimo di mxgmn) 
+                a trasformare quel concetto teorico in un fenomeno globale.<br>
+                <br>
+                Nel 2016, Gumin ha rilasciato pubblicamente su GitHub un algoritmo chiamato WaveFunctionCollapse. Questa 
+                repository non solo ha ridefinito il modo in cui i programmatori concepiscono la generazione di mondi e 
+                texture, ma ha anche dimostrato come l'unione tra la teoria dell'informazione e un approccio open-source 
+                possa cambiare un'intera industria.<br>
+                <br>
+                Maxim Gumin non è partito da un approccio puramente geometrico o ingegneristico come Merrell. Il suo interesse 
+                principale risiedeva nella sintesi delle texture e nella manipolazione dei pixel. Gumin voleva creare un sistema 
+                snello capace di generare immagini grandi e complesse partendo da campioni minuscoli, riducendo al minimo 
+                l'intervento umano nella scrittura delle regole.<br>
+                <br>
+                L'intuizione brillante di Gumin è stata quella di prendere il problema dei vincoli logici e tradurlo nel linguaggio della 
+                meccanica quantistica e della teoria dell'informazione di Shannon. È stato Gumin a introdurre formalmente i concetti che 
+                oggi definiscono l'algoritmo.<br>
+                <br>
+                La metafora della Meccanica Quantistica:<br>
+                <br>
+                 L'idea che lo spazio di output nasca in uno stato di "superposizione" (dove 
+                ogni pixel è contemporaneamente tutti i colori possibili) e che l'algoritmo operi compiendo delle "osservazioni" che 
+                fanno "collassare" lo stato del sistema.<br>
+                <br>
+                L'uso dell'Entropia come Guida:<br>
+                <br>
+                 Prima di Gumin, i tentativi di risoluzione di questi problemi procedevano in modo lineare 
+                (come lo scanline di Merrell) o totalmente casuale. Gumin ha capito che per minimizzare i fallimenti e ottimizzare i tempi di calcolo, 
+                l'algoritmo doveva analizzare la mappa e far collassare sempre la cella con la minore entropia di Shannon (ovvero la cella più 
+                instabile e con meno scelte legali rimaste).<br>
             </p>
         </div>
         <div class="col-immagini"></div>
