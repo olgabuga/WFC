@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<!-- SFONDO ANIMATO -->
 <div class="sfondo-animato-fluid">
     <div class="blob b-centro"></div>
     <div class="blob b-uno"></div>
@@ -23,10 +22,8 @@
     <div class="blob b-cinque"></div>
 </div>
 
-<!-- SFERA CURSORE -->
 <div id="sfera-cursore"></div>
 
-<!-- FILTRO SVG -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <defs>
         <filter id="ultra-smooth-liquid">
@@ -42,12 +39,6 @@
 
 <main class="contenitore-principale">
 
-    <!-- ═══════════════════════════════════════════
-         HEADER
-         Col 1: titolo h1
-         Col 2: sottotitolo
-         Col 3: vuota
-    ═══════════════════════════════════════════ -->
     <header>
         <div class="titolo-sezione">
             <h1>Wave Function Collapse</h1>
@@ -58,12 +49,6 @@
         <div class="col-immagini"></div>
     </header>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 1 — Che cos'è?
-         Col 1: label + h2
-         Col 2: testo
-         Col 3: vuota (nessuna immagine principale)
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Sintesi del modello:</h4>
@@ -83,9 +68,6 @@
         <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 2 — Maxim Gumin
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Implementazioni:</h4>
@@ -104,9 +86,6 @@
         <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 3 — Paul Merrell
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Implementazioni:</h4>
@@ -126,11 +105,6 @@
         <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 4 — Come funziona?
-         Col 2: testo + sotto il testo → thumbnail sudoku (immagini secondarie)
-         Col 3: vuota
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Algoritmo:</h4>
@@ -151,20 +125,14 @@
                 le caselle con minor entropia fino ad averla portata tutta a zero.
                 Ci sono due modelli con cui affrontare il WFC: "Tile Model" e "Overlapping Model".
             </p>
-            <!-- Thumbnail sudoku: immagini secondarie sotto il testo, colonna 2 -->
             <div class="thumbnails">
-                <div class="tessera-box"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
-                <div class="tessera-box"><img src="./immagini_tiles/sudoku_02.png" alt="Sudoku esempio 2"></div>
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/sudoku_02.png" alt="Sudoku esempio 2"></div>
             </div>
         </div>
         <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 5 — Tile Model
-         Col 2: testo + sotto il testo → thumbnail tessere (immagini secondarie)
-         Col 3: composizioni grandi
-    ═══════════════════════════════════════════ -->
     <section id="tile-model" class="filetto">
         <div class="titolo-sezione">
             <h4>Modelli:</h4>
@@ -179,7 +147,6 @@
                 randomicamente una fra le opzioni, questo modifica nuovamente l'entropia delle celle vicine.
                 Procedendo in questo modo si possono generare immagini ogni volta differenti.
             </p>
-            <!-- Thumbnail tessere: immagini secondarie sotto il testo, colonna 2 -->
             <div class="thumbnails">
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_01.png" alt="Tessera 1"></div>
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_02.png" alt="Tessera 2"></div>
@@ -187,23 +154,14 @@
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_04.png" alt="Tessera 4"></div>
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_05.png" alt="Tessera 5"></div>
             </div>
-        </div>
-        <!-- Immagini principali: colonna 3 -->
-        <div class="col-immagini">
-            <div class="composizione-box">
-                <img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1">
-            </div>
-            <div class="composizione-box">
-                <img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2">
+            <div class="riga-composizioni">
+                <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1"></div>
+                <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2"></div>
             </div>
         </div>
+        <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 6 — Overlapping Model
-         Col 2: testo + thumbnail tessere overlapping + iframe sketch
-         Col 3: immagini sovrapposizione
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Modelli:</h4>
@@ -222,8 +180,7 @@
                 si sovrappongono perfettamente alle prime due colonne della tessera di destra
                 (lo stesso vale per sinistra, sopra e sotto).
             </p>
-            <!-- Thumbnail tessere overlapping: immagini secondarie sotto il testo, colonna 2 -->
-            <div class="thumbnails">
+            <div class="thumbnails thumbnails--nowrap">
                 <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_01.png" alt="Tessera 1"></div>
                 <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_02.png" alt="Tessera 2"></div>
                 <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_03.png" alt="Tessera 3"></div>
@@ -234,26 +191,15 @@
                 <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_08.png" alt="Tessera 8"></div>
                 <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_09.png" alt="Tessera 9"></div>
             </div>
-            <!-- Iframe sketch: nella colonna del testo, sotto le thumbnail -->
-            <iframe scrolling="no" frameborder="0" height="500" src="./assets/sketches/wfc/"></iframe>
-        </div>
-        <!-- Immagini principali: colonna 3 -->
-        <div class="col-immagini">
-            <div class="composizione-box">
-                <img src="./immagini_overlapping/overlapping_sovrapposizione_01.png" alt="Sovrapposizione 1">
-            </div>
-            <div class="composizione-box">
-                <img src="./immagini_overlapping/overlapping_sovrapposizione_02.png" alt="Sovrapposizione 2">
-            </div>
-            <div class="composizione-box">
-                <img src="./immagini_overlapping/overlapping_sovrapposizione_03.png" alt="Sovrapposizione 3">
+            <div class="riga-composizioni riga-composizioni--small">
+                <div class="composizione-box"><img src="./immagini_overlapping/overlapping_sovrapposizione_01.png" alt="Sovrapposizione 1"></div>
+                <div class="composizione-box"><img src="./immagini_overlapping/overlapping_sovrapposizione_02.png" alt="Sovrapposizione 2"></div>
+                <div class="composizione-box composizione-box--rettangolare"><img src="./immagini_overlapping/overlapping_sovrapposizione_03.png" alt="Sovrapposizione 3"></div>
             </div>
         </div>
+        <div class="col-immagini"></div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SEZIONE 7 — Bibliografia
-    ═══════════════════════════════════════════ -->
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Bibliografia</h4>
