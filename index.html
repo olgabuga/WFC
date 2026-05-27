@@ -116,7 +116,7 @@
                 Un altro enorme contributo di Merrell, fondamentale per la grafica moderna, è l'elaborazione in blocchi (chunks). Se provassimo
                 a generare una città immensa tutta in una volta (approccio all-at-once), la memoria del computer si saturerebbe e un singolo
                 errore strutturale a un'estremità della mappa costringerebbe l'algoritmo a cancellare l'intera città e ricominciare da capo. 
-                Merrell ha risolto il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
+                Merrell ha insolventi il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
                 <br>
                 1. L'algoritmo genera il Blocco A.<br>
                 <br>
@@ -145,7 +145,7 @@
                 <br>
                 Nel 2016, Gumin ha rilasciato pubblicamente su GitHub un algoritmo chiamato WaveFunctionCollapse. Questa 
                 repository non solo ha ridefinito il modo in cui i programmatori concepiscono la generazione di mondi e 
-                texture, ma ha anche dimostrato come l'unione tra la teoria dell'informazione e un approccio open-source 
+                texture, ma ha anche documento come l'unione tra la teoria dell'informazione e un approccio open-source 
                 possa cambiare un'intera industria.<br>
                 <br>
                 Maxim Gumin non è partito da un approccio puramente geometrico o ingegneristico come Merrell. Il suo interesse 
@@ -190,41 +190,43 @@
             </p>
             
 <div class="formula-shannon-container">
-    <img src="./formula png.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
+    <img src="./formula png.svg.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
 </div>
 
-<p>
-H(X): È il valore finale dell'entropia per la cella X. Indica quanto è "caotica" o incerta quella specifica posizione in quel
-momento.<br>
-<br>
-n: È il numero di stati o tessere ancora possibili e valide per quella cella. All'inizio del processo, n è molto alto;
-man mano che si applicano i vincoli, n si riduce.<br>
-<br>  
-P(x_i): È la probabilità di uscita del singolo tassello x_i. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
-ovvero su quante volte quel tassello o quel pattern di pixel appare nell'immagine di input originale.<br>
- <br>   
-\log_2 P(x_i): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
-Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logaritmo di 1 diventa 0, azzerando l'intera equazione.<br>
-<br>
-</p>
             <p>
-            Il termine COLLASSO, nel concetto dell'entropia, consiste proprio nel ridurre tutti gli stati possibili in uno solo,
-             rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
-             cella a scegliere una sola opzione tra quelle rimaste, la probabilità
-              di quel tassello diventa il 100% (P=1) e l'entropia di quella cella crolla a zero.<br>
-              <br>
-              Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
-              scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
-               logiche e continuare a ridurre le opzioni. L'algoritmo fa "collassare" progressivamente le celle a catena fino ad aver 
-               portato l'entropia di tutto il sistema a zero, momento in cui l'immagine di output è completamente definita e stabile.
-
-               Il processo di risoluzione del Sudoku è lo stesso identico meccanismo alla base del WFC. Si parte da una griglia in cui è 
-               presente un insieme di tessere, molte delle quali già collassate (i numeri già scritti all'inizio del gioco). Le caselle 
-               vuote rappresentano invece celle in uno stato di "superposizione", dove potenzialmente possono comparire i numeri da 1 a 9 
-               (entropia alta).<br>
-               <br>
-                Per risolvere il gioco, non si tirano i dadi: si cerca la casella con la minore entropia, ovvero quella casella vuota che, 
-                a causa dei vincoli della sua riga, colonna o riquadro, ha il minor numero di numeri possibili rimasti.
+                H(X): È il valore finale dell'entropia per la cella X. Indica quanto è "caotica" o incerta quella specifica posizione in quel
+                momento.<br>
+                <br>
+                n: È il numero di stati o tessere ancora possibili e valide per quella cella. All'inizio del processo, n è molto alto;
+                man mano che si applicano i vincoli, n si riduce.<br>
+                <br>  
+                P(x_i): È la probabilità di uscita del singolo tassello x_i. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
+                ovvero su quante volte quel tassello o quel pattern di pixel appare nell'immagine di input originale.<br>
+                 <br>   
+                log_2 P(x_i): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
+                Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logaritmo di 1 diventa 0, azzerando l'intera equazione.<br>
+                <br>
+            </p>
+            <p>
+                Il termine collasso, nel concetto dell'entropia, consiste proprio nel ridurre tutti gli stati possibili in uno solo,
+                 rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
+                 cella a scegliere una sola opzione tra quelle rimaste, la probabilità
+                  di quel tassello diventa il 100% (P=1) e l'entropia di quella cella crolla a zero.<br>
+                  <br>
+                  Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
+                  scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
+                   logiche e continuare a ridurre le opzioni. L'algoritmo fa "collassare" progressivamente le celle a catena fino ad aver 
+                   portato l'entropia di tutto il sistema a zero, momento in cui l'immagine di output è completamente definita e stabile.<br>
+                   <br>
+                   Sudoku:<br>
+                   <br>
+                   Il processo di risoluzione del Sudoku è lo stesso identico meccanismo alla base del WFC. Si parte da una griglia in cui è 
+                   presente un insieme di tessere, molte delle quali già collassate (i numeri già scritti all'inizio del gioco). Le caselle 
+                   vuote rappresentano invece celle in uno stato di "superposizione", dove potenzialmente possono comparire i numeri da 1 a 9 
+                   (entropia alta).<br>
+                   <br>
+                    Per risolvere il gioco, non si tirano i dadi: si cerca la casella con la minore entropia, ovvero quella casella vuota che, 
+                    a causa dei vincoli della sua riga, colonna o riquadro, ha il minor numero di numeri possibili rimasti.
             </p>
             <div class="thumbnails">
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
@@ -255,9 +257,16 @@ Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logar
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_04.png" alt="Tessera 4"></div>
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_05.png" alt="Tessera 5"></div>
             </div>
-            <div class="riga-composizioni">
-                <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1"></div>
-                <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2"></div>
+            
+            <div class="thumbnails">
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/entropia_01.png" alt="Sudoku esempio 1"></div>
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/entropia_02.png" alt="Sudoku esempio 2"></div>
+            </div>
+
+
+            <div class="thumbnails">
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1"></div>
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2"></div>
             </div>
         </div>
         <div class="col-immagini"></div>
