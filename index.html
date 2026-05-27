@@ -10,6 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/MathJax.js"></script>
 </head>
 <body>
 
@@ -61,7 +71,7 @@
                 Il Wave Function Collapse (WFC) è un algoritmo per la generazione procedurale di immagini applicato sia all'arte che ai videogiochi.<br>
                 <br>
                 Il principio alla base di questo algoritmo consiste nel prendere un'immagine di input e a partire da quella generare un'immagine di output
-                di dimensioni arbitrarie. La caratteristica distintiva del WFC è che tutte le immagini prodotte in output imitano fedelmente l'immagine di
+                di dimensions arbitrarie. La caratteristica distintiva del WFC è che tutte le immagini prodotte in output imitano fedelmente l'immagine di
                 input nella sua composizione e nelle sue regole geometriche locali.<br>
     
                 Il primo esempio di questo tipo di algoritmo è stato descritto da Paul Merrell, che lo ha definito
@@ -76,7 +86,7 @@
         <div class="col-immagini"></div>
     </section>
 
-        <section class="filetto">
+    <section class="filetto">
         <div class="titolo-sezione">
             <h4>Implementazioni:</h4>
             <h2>Paul Merrell</h2>
@@ -84,42 +94,39 @@
         <div class="contenuto-sezione">
             <p>
                 Per comprendere a fondo l'invenzione di Paul Merrell del 2007, la Model Synthesis (Sintesi del Modello), dobbiamo
-                calarci nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (come intere
+                calarmi nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (come intere
                 città o labirinti) richiedeva o un lavoro manuale immenso da parte degli artisti, o formule matematiche rigide
                 che però faticavano a creare strutture architettoniche sensate.<br>
                 <br>
                 L'algoritmo riceve in input un piccolo modello 3D d'esempio (chiamato modello esemplare), composto da blocchi geometrici
-                 (i  tasselli 3D) adiacenti l'uno all'altro. L'algoritmo analizza questo esempio e compila una lista di regole rigide.
-                  Ad esempio:<br>
-<br>
-Il blocco "Tetto" può stare solo sopra al blocco "Muro".<br>
-Il blocco "Porta" deve avere il blocco "Pavimento" sotto e "Muro" ai lati.<br>
-<br>
-Una volta apprese queste regole, l'algoritmo tenta di riempire un volume 3D vuoto molto più grande, incastrando i blocchi in modo che
-nessuna regola di vicinato venga mai violata.
-Merrell ha introdotto un approccio scanline (linea di scansione). L'algoritmo si muove nello spazio in modo ordinato e sequenziale, 
-come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in modo prevedibile e ordinato, l'algoritmo riduce
- drasticamente i calcoli necessari per verificare l'intera mappa. Merrell dimostrò che questo riduceva il "tasso di insuccesso"
-  (ovvero la probabilità che l'algoritmo si blocchi senza sapere cosa mettere), poiché i vincoli venivano risolti linearmente un
-   pezzo alla volta.<br>
-<br>
-   Un altro enorme contributo di Merrell, fondamentale per la grafica moderna, è l'elaborazione in blocchi (chunks). Se provassimo
-    a generare una città immensa tutta in una volta (approccio all-at-once), la memoria del computer si saturerebbe e un singolo
-     errore strutturale a un'estremità della mappa costringerebbe l'algoritmo a cancellare l'intera città e ricominciare da capo. 
-     Merrell ha risolto il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
-<br>
-
-1. L'algoritmo genera il Blocco A.<br>
-<br>
-2. Quando passa al Blocco B (adiacente al Blocco A), usa i confini finali del Blocco A come vincoli di partenza (input).<br></li>
-<br>
-3. In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br></li>
-<br>
-
-
- La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
- un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
- tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.<br>
+                (i tasselli 3D) adiacenti l'uno all'altro. L'algoritmo analizza questo esempio e compila una lista di regole rigide.
+                Ad esempio:<br>
+                <br>
+                Il blocco "Tetto" può stare solo sopra al blocco "Muro".<br>
+                Il blocco "Porta" deve avere il blocco "Pavimento" sotto e "Muro" ai lati.<br>
+                <br>
+                Una volta apprese queste regole, l'algoritmo tenta di riempire un volume 3D vuoto molto più grande, incastrando i blocchi in modo che
+                nessuna regola di vicinato venga mai violata.
+                Merrell ha introdotto un approccio scanline (linea di scansione). L'algoritmo si muove nello spazio in modo ordinato e sequenziale, 
+                come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in modo prevedibile e ordinato, l'algoritmo riduce
+                drasticamente i calcoli necessari per verificare l'intera mappa. Merrell dimostrò che questo riduceva il "tasso di insuccesso"
+                (ovvero la probabilità che l'algoritmo si blocchi senza sapere cosa mettere), poiché i vincoli venivano risolti linearmente un
+                pezzo alla volta.<br>
+                <br>
+                Un altro enorme contributo di Merrell, fondamentale per la grafica moderna, è l'elaborazione in blocchi (chunks). Se provassimo
+                a generare una città immensa tutta in una volta (approccio all-at-once), la memoria del computer si saturerebbe e un singolo
+                errore strutturale a un'estremità della mappa costringerebbe l'algoritmo a cancellare l'intera città e ricominciare da capo. 
+                Merrell ha risolto il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
+                <br>
+                1. L'algoritmo genera il Blocco A.<br>
+                <br>
+                2. Quando passa al Blocco B (adiacente al Blocco A), usa i confini finali del Blocco A come vincoli di partenza (input).<br>
+                <br>
+                3. In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br>
+                <br>
+                La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
+                un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
+                tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.<br>
             </p>
         </div>
         <div class="col-immagini"></div>
@@ -152,13 +159,13 @@ come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in 
                 <br>
                 La metafora della Meccanica Quantistica:<br>
                 <br>
-                 L'idea che lo spazio di output nasca in uno stato di "superposizione" (dove 
+                L'idea che lo spazio di output nasca in uno stato di "superposizione" (dove 
                 ogni pixel è contemporaneamente tutti i colori possibili) e che l'algoritmo operi compiendo delle "osservazioni" che 
                 fanno "collassare" lo stato del sistema.<br>
                 <br>
-                L'uso dell'Entropia come Guida:<br>
+                L'Scaltro dell'Entropia come Guida:<br>
                 <br>
-                 Prima di Gumin, i tentativi di risoluzione di questi problemi procedevano in modo lineare 
+                Prima di Gumin, i tentativi di risoluzione di questi problemi procedevano in modo lineare 
                 (come lo scanline di Merrell) o totalmente casuale. Gumin ha capito che per minimizzare i fallimenti e ottimizzare i tempi di calcolo, 
                 l'algoritmo doveva analizzare la mappa e far collassare sempre la cella con la minore entropia di Shannon (ovvero la cella più 
                 instabile e con meno scelte legali rimaste).<br>
@@ -175,21 +182,49 @@ come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in 
         <div class="contenuto-sezione">
             <p>
                 L'entropia misura la quantità di incertezza, casualità o sorpresa associata a una variabile casuale: più un evento è 
-                imprevedibile, maggiore è la sua entropia. Se un evento è matematicamente certo, la sua entropia è pari a zero.<br>
+                imprevedibile, maggiore è la sua entropia. Se un evento è matematicamente certo, la sua entropia è pari a zero.
+            </p>
+            
+            <p>
+                Nel campo della teoria dell'informazione, questo concetto viene quantificato attraverso la formula dell'<strong>Entropia di Shannon</strong>:
+            </p>
+            
+<div class="formula-shannon-container">
+    <img src="./formula png.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
+</div>
 
-Nel campo della teoria dell'informazione, questo concetto viene quantificato attraverso la formula dell'Entropia di Shannon:
-                Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
-                imprevedibile maggiore è la sua entropia. Se un evento è certo la sua entropia è zero.
-                Il termine COLLASSO nel concetto dell'entropia consiste nel ridurre tutti gli stati possibili in uno solo,
-                rimuovendo tutta l'entropia da una singola variabile del sistema.
-                Man mano che le celle collassano e il loro stato risulta in una sola opzione l'entropia si riduce per tutte le
-                celle vicine dando la possibilità di fare delle ipotesi e continuare a ridurre le opzioni facendo "collassare" le
-                celle fino ad aver portato l'entropia a zero (tutto è definito).
-                Il processo di risoluzione del sudoku è lo stesso alla base del WFC: si parte da un insieme di tessere,
-                molte delle quali già collassate e si cerca quella con la minore entropia.
-                Trovata la casella con l'entropia più bassa (1) si può continuare cercando progressivamente
-                le caselle con minor entropia fino ad averla portata tutta a zero.
-                Ci sono due modelli con cui affrontare il WFC: "Tile Model" e "Overlapping Model".
+<p>
+H(X): È il valore finale dell'entropia per la cella X. Indica quanto è "caotica" o incerta quella specifica posizione in quel
+momento.<br>
+<br>
+n: È il numero di stati o tessere ancora possibili e valide per quella cella. All'inizio del processo, n è molto alto;
+man mano che si applicano i vincoli, n si riduce.<br>
+<br>  
+P(x_i): È la probabilità di uscita del singolo tassello x_i. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
+ovvero su quante volte quel tassello o quel pattern di pixel appare nell'immagine di input originale.<br>
+ <br>   
+\log_2 P(x_i): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
+Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logaritmo di 1 diventa 0, azzerando l'intera equazione.<br>
+<br>
+</p>
+            <p>
+            Il termine COLLASSO, nel concetto dell'entropia, consiste proprio nel ridurre tutti gli stati possibili in uno solo,
+             rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
+             cella a scegliere una sola opzione tra quelle rimaste, la probabilità
+              di quel tassello diventa il 100% (P=1) e l'entropia di quella cella crolla a zero.<br>
+              <br>
+              Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
+              scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
+               logiche e continuare a ridurre le opzioni. L'algoritmo fa "collassare" progressivamente le celle a catena fino ad aver 
+               portato l'entropia di tutto il sistema a zero, momento in cui l'immagine di output è completamente definita e stabile.
+
+               Il processo di risoluzione del Sudoku è lo stesso identico meccanismo alla base del WFC. Si parte da una griglia in cui è 
+               presente un insieme di tessere, molte delle quali già collassate (i numeri già scritti all'inizio del gioco). Le caselle 
+               vuote rappresentano invece celle in uno stato di "superposizione", dove potenzialmente possono comparire i numeri da 1 a 9 
+               (entropia alta).<br>
+               <br>
+                Per risolvere il gioco, non si tirano i dadi: si cerca la casella con la minore entropia, ovvero quella casella vuota che, 
+                a causa dei vincoli della sua riga, colonna o riquadro, ha il minor numero di numeri possibili rimasti.
             </p>
             <div class="thumbnails">
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
