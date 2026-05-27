@@ -272,7 +272,7 @@ a:hover { color: var(--accent-glow); border-bottom-color: var(--accent-glow); }
     display: flex ;
     flex-direction: column ; 
     gap: 0.5rem ;
-    width: 150px ;          
+    width: 150px ;           
 }
 .tessera-box, .composizione-box {
     position: relative ;
@@ -300,89 +300,15 @@ a:hover { color: var(--accent-glow); border-bottom-color: var(--accent-glow); }
     box-shadow: 0 12px 24px rgba(249, 133, 19, 0.3);
 }
 
-/* MODIFICA: Griglia verticale e stile per le immagini grandi dell'algoritmo (Sudoku) */
-.griglia-sudoku {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    width: 100%;
-    max-width: 160px; /* Controlla la larghezza della colonna delle immagini */
-}
-
-.tessera-box-grande {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;    
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(10px);        
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(244, 241, 241, 0.12);
-    border-radius: 10px;     
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    transition: var(--transition-smooth);
-}
-
-.tessera-box-grande img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.tessera-box-grande:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 12px 24px rgba(249, 133, 19, 0.3);
-}
-
 /*5. RESPONSIVENESS ADATTIVA */
 @media only screen and (max-width: 950px) {
     header, section { grid-template-columns: 1fr; gap: 1.5rem; }
     .contenuto-sezione.con-griglia-tessere { flex-direction: column; gap: 2rem; }
     .contenuto-sezione.con-griglia-tessere .testo-paragrafo { max-width: 100%; }
-    
-    /* MODIFICA RESPONSIVE: sotto i 950px i due sudoku si affiancano orizzontalmente */
-    .griglia-sudoku {
-        flex-direction: row;
-        max-width: 100%;
-        gap: 1rem;
-    }
-    .tessera-box-grande {
-        width: 140px; /* Dimensione fissa ottimale su tablet/mobile */
-    }
 }
 @media only screen and (max-width: 480px) {
     .showcase-immagini { flex-direction: column; gap: 1.5rem; }
     .griglia-tessere { grid-template-columns: repeat(5, 45px); width: 100%; }
     .composizioni-grandi { flex-direction: row; width: 100%; }
     .composizione-box { width: 100px; }
-    
-    /* Ridimensionamento per smartphone piccoli */
-    .tessera-box-grande {
-        width: 110px;
-    }
-}
-/* Contenitore: prende tutto lo spazio orizzontale disponibile */
-.riga-unica-immagini {
-    display: flex;
-    width: 100%;
-    gap: 8px;                 /* Spazio uniforme tra i quadrati */
-    box-sizing: border-box;
-    margin-top: 25px;
-}
-
-/* Forza i box a essere identici tra loro e perfettamente quadrati */
-.riga-unica-immagini .tessera-box {
-    flex: 1;                  /* Divide lo spazio orizzontale in parti esattamente uguali */
-    min-width: 0;             /* Impedisce alle immagini di rompere il layout flex */
-    aspect-ratio: 1 / 1;      /* REGOLA CHIAVE: Altezza sempre uguale alla larghezza (Quadrato) */
-}
-
-/* Gestione delle immagini interne per evitare distorsioni */
-.riga-unica-immagini .tessera-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* Riempie il quadrato e taglia i bordi in eccesso senza deformare l'immagine */
-    display: block;
-    border-radius: 4px;       /* Arrotonda leggermente gli angoli (opzionale) */
 }

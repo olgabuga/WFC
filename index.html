@@ -6,349 +6,280 @@
     <meta name="author" content="Nome Cognome">
     <meta name="description" content="Descrizione">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="./assets/css/main.css">
-
-    <style>
-        /* STRUTTURA DEL LAYOUT ASIMMETRICO */
-        .griglia-layout-split {
-            display: grid;
-            grid-template-columns: 1fr 350px; /* Colonna di testo a sinistra, colonna fissa per immagini a destra */
-            gap: 40px;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        /* Il testo occupa la colonna principale */
-        .blocco-testo {
-            width: 100%;
-        }
-
-        /* Il blocco delle immagini grandi si posiziona nella colonna di destra */
-        .blocco-immagini-destra {
-            display: flex;
-            flex-direction: column; 
-            gap: 15px;
-            align-items: flex-end;
-            justify-content: flex-start;
-            width: 100%;
-        }
-
-        .blocco-immagini-destra.orizzontale {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        /* CONTENITORE ICONE VERTICALI (Specifico per Tile Model) */
-        .showcase-tile-model {
-            display: flex;
-            gap: 20px;
-            width: 100%;
-            align-items: flex-start;
-        }
-
-        .colonna-immagini-verticali {
-            display: flex;
-            flex-direction: column; /* Dispone le tessere in verticale */
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        /* RIGA DELLE IMMAGINI PICCOLE PER OVERLAPPING (Sotto al blocco testo) */
-        .riga-immagini-piccole {
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 12px; 
-            width: 100%; 
-            margin-top: 30px; 
-            box-sizing: border-box;
-            justify-content: flex-start;
-            grid-column: 1 / -1;
-        }
-
-        /* STILE TESSERE PICCOLE (50px) */
-        .tessera-box {
-            flex: 0 0 50px; 
-            width: 50px; 
-            height: 50px; 
-            border-radius: 6px; 
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        /* STILE DELLE TESSERE MEDIE (100px) */
-        .blocco-immagini-destra .tessera-box-media {
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        /* STILE DELL'ULTIMA TESSERA RETTANGOLARE GRANDE */
-        .blocco-immagini-destra .tessera-box-rettangolo {
-            width: 100%; 
-            max-width: 350px;
-            height: auto;
-            aspect-ratio: 5 / 2; 
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        /* COMPOSIZIONI GRANDI DEL TILE MODEL */
-        .blocco-immagini-destra .composizione-box {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-        }
-
-        /* EFFETTI HOVER UNIVERSALI */
-        .tessera-box:hover, 
-        .tessera-box-media:hover, 
-        .tessera-box-rettangolo:hover,
-        .composizione-box:hover {
-            transform: scale(1.05); 
-            border-color: rgba(255, 255, 255, 0.5);
-            z-index: 2;
-        }
-
-        .tessera-box img, 
-        .tessera-box-media img, 
-        .tessera-box-rettangolo img,
-        .composizione-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .griglia-layout-split {
-                grid-template-columns: 1fr;
-            }
-            .showcase-tile-model {
-                flex-direction: column;
-            }
-            .colonna-immagini-verticali {
-                flex-direction: row;
-            }
-        }
-    </style>
 </head>
 <body>
 
-    <div class="sfondo-animato-fluid">
-        <div class="blob b-centro"></div>
-        <div class="blob b-uno"></div>
-        <div class="blob b-due"></div>
-        <div class="blob b-tre"></div>
-        <div class="blob b-quattro"></div>
-        <div class="blob b-cinque"></div>
-    </div>
+<!-- SFONDO ANIMATO -->
+<div class="sfondo-animato-fluid">
+    <div class="blob b-centro"></div>
+    <div class="blob b-uno"></div>
+    <div class="blob b-due"></div>
+    <div class="blob b-tre"></div>
+    <div class="blob b-quattro"></div>
+    <div class="blob b-cinque"></div>
+</div>
 
-    <div id="sfera-cursore"></div>
+<!-- SFERA CURSORE -->
+<div id="sfera-cursore"></div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <defs>
-            <filter id="ultra-smooth-liquid">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="90" result="blurred" />
-                <feTurbulence type="fractalNoise" baseFrequency="0.002 0.002" numOctaves="3" result="noise" />
-                <feDisplacementMap in="blurred" in2="noise" scale="220" xChannelSelector="R" yChannelSelector="G" result="warped" />
-                <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" result="grainNoise" />
-                <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.10 0" result="fadedGrain" />
-                <feBlend mode="overlay" in="warped" in2="fadedGrain" />
-            </filter>
-        </defs>
-    </svg>
+<!-- FILTRO SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <defs>
+        <filter id="ultra-smooth-liquid">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="90" result="blurred"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.002 0.002" numOctaves="3" result="noise"/>
+            <feDisplacementMap in="blurred" in2="noise" scale="220" xChannelSelector="R" yChannelSelector="G" result="warped"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="1" result="grainNoise"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.10 0" result="fadedGrain"/>
+            <feBlend mode="overlay" in="warped" in2="fadedGrain"/>
+        </filter>
+    </defs>
+</svg>
 
-    <main class="contenitore-principale">
-        <header>
+<main class="contenitore-principale">
+
+    <!-- ═══════════════════════════════════════════
+         HEADER
+         Col 1: titolo h1
+         Col 2: sottotitolo
+         Col 3: vuota
+    ═══════════════════════════════════════════ -->
+    <header>
+        <div class="titolo-sezione">
             <h1>Wave Function Collapse</h1>
+        </div>
+        <div class="contenuto-sezione">
             <p>Buga Olga e Callegari Giulia</p>
-        </header>
+        </div>
+        <div class="col-immagini"></div>
+    </header>
 
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Sintesi del modello:</h4><h2>Che cos'è?</h2></div>
-            <div class="contenuto-sezione">
-                <p>
-                    Il WFC è un algoritmo per la generazione procedurale di immagini applicato sia all’arte che ai videogiochi,
-                    la base di questo algoritmo consiste nel prendere un'immagine di input e a partire da quella generare un’immagine di output.
-                    Tutte le immagini di output imitano l’immagine di input nella sua composizione.
-                    Il primo esempio di questo tipo di algoritmo è stato descritto da Paul Merrell, che lo ha definito
-                    ‘sintesi del modello’ per primo nel suo documento i3D del 2007. Il nome 'collasso della funzione d'onda’ in
-                    seguito è diventato il nome popolare per una variante di quell’algoritmo, dopo che
-                    un'implementazione di Maxim Gumin è stata pubblicata nel 2016 su un GitHub repository con quel nome.
-                </p>
-            </div>
-        </section>
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 1 — Che cos'è?
+         Col 1: label + h2
+         Col 2: testo
+         Col 3: vuota (nessuna immagine principale)
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Sintesi del modello:</h4>
+            <h2>Che cos'è?</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                Il WFC è un algoritmo per la generazione procedurale di immagini applicato sia all'arte che ai videogiochi,
+                la base di questo algoritmo consiste nel prendere un'immagine di input e a partire da quella generare un'immagine di output.
+                Tutte le immagini di output imitano l'immagine di input nella sua composizione.
+                Il primo esempio di questo tipo di algoritmo è stato descritto da Paul Merrell, che lo ha definito
+                'sintesi del modello' per primo nel suo documento i3D del 2007. Il nome 'collasso della funzione d'onda' in
+                seguito è diventato il nome popolare per una variante di quell'algoritmo, dopo che
+                un'implementazione di Maxim Gumin è stata pubblicata nel 2016 su un GitHub repository con quel nome.
+            </p>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
 
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Implementazioni:</h4><h2>Maxim Gumin</h2></div>
-            <div class="contenuto-sezione">
-                <p>
-                1.Viene letta la bitmap di input e vengono contati i modelli presenti all'interno della bitmap<br>
-                2.Viene creato un array con le dimensioni dell'output desiderato<br>
-                3.Ogni cella dell'array è inizializzata in uno stato ‘non osservato’.<br>
-                4.Si ripetono i seguenti passaggi Controlla che tutte le celle siano ancora valide e segui le regole<br>
-                5.Una volta che tutte le celle sono ‘collassate’ in uno stato definito, restituire l'output. <br>
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 2 — Maxim Gumin
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Implementazioni:</h4>
+            <h2>Maxim Gumin</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                1. Viene letta la bitmap di input e vengono contati i modelli presenti all'interno della bitmap<br>
+                2. Viene creato un array con le dimensioni dell'output desiderato<br>
+                3. Ogni cella dell'array è inizializzata in uno stato 'non osservato'.<br>
+                4. Si ripetono i seguenti passaggi: controlla che tutte le celle siano ancora valide e segui le regole<br>
+                5. Una volta che tutte le celle sono 'collassate' in uno stato definito, restituire l'output.<br>
                 Se l'output è illegale, scartalo e ripeti il processo fino a quando non sarà legale.
-                </p>
-            </div>
-        </section>
+            </p>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
 
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Implementazioni:</h4><h2>Paul Merrell</h2></div>
-            <div class="contenuto-sezione">
-                <p>
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 3 — Paul Merrell
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Implementazioni:</h4>
+            <h2>Paul Merrell</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
                 La precedente implementazione di Merrell è sostanzialmente la stessa di Gumin con alcune piccole differenze.
-                 Nella versione di Merrell, non è necessario selezionare la cella con il minor numero di possibili stati di uscita
-                  per il collasso. Viene invece adottato un approccio scanline. Secondo Merrell, ciò si traduce in un valore 
-                  inferiore tasso di insuccesso del modello senza alcun effetto negativo sulla qualità. Alcuni commentatori hanno
-                  notato tuttavia che l'approccio della linea di scansione al 'collasso' tende a provocare artefatti direzionali.
-                   L'approccio di Merrell esegue l'algoritmo in blocchi, piuttosto che all-at-once. Questo approccio riduce 
-                   notevolmente il tasso di guasto per molti modelli complessi di grandi dimensioni; soprattutto in uno spazio 3D.
-                </p>
-                        </div>
-        </section>
+                Nella versione di Merrell, non è necessario selezionare la cella con il minor numero di possibili stati di uscita
+                per il collasso. Viene invece adottato un approccio scanline. Secondo Merrell, ciò si traduce in un valore
+                inferiore tasso di insuccesso del modello senza alcun effetto negativo sulla qualità. Alcuni commentatori hanno
+                notato tuttavia che l'approccio della linea di scansione al 'collasso' tende a provocare artefatti direzionali.
+                L'approccio di Merrell esegue l'algoritmo in blocchi, piuttosto che all-at-once. Questo approccio riduce
+                notevolmente il tasso di guasto per molti modelli complessi di grandi dimensioni; soprattutto in uno spazio 3D.
+            </p>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
 
-        </section>
-
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Algoritmo:</h4><h2>Come funziona?</h2></div>
-            <div class="contenuto-sezione">
-                <p>
-                    Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 4 — Come funziona?
+         Col 2: testo + sotto il testo → thumbnail sudoku (immagini secondarie)
+         Col 3: vuota
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Algoritmo:</h4>
+            <h2>Come funziona?</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                Misura la quantità di incertezza, casualità, o sorpresa associata ad una variabile casuale, più un evento è
                 imprevedibile maggiore è la sua entropia. Se un evento è certo la sua entropia è zero.
-                Il termine COLLASSO nel concetto dell’entropia consiste nel ridurre tutti gli stati possibili in uno solo.
-                rimuovendo tutta l’entropia da una singola variabile del sistema.
-                Man mano che le celle collassano e il loro stato risulta in una sola opzione l’entropia si riduce per tutte le
-                celle vicine dando la possibilità di faire delle ipotesi e continuare a ridurre le opzioni facendo “collassare” le
-                celle fino ad aver portato l’entropia a zero (tutto è definito).
-                    Il processo di risoluzione del sudoku é lo stesso alla base del WFC, si parte da un insieme di tessere,
-                    molte delle quali già collassate e si cerca nella con la minore entropia. 
-                    Trovata la casella con l’entropia più bassa (1) si può continuare cercando progressivamente 
-                    le caselle con minor entropia fino ad averla portata tutta a zero.
-                    Ci sono due modelli con cui affrontare il WFC:
-                    “Tile Model” e “Overlapping Model”
-                </p>
+                Il termine COLLASSO nel concetto dell'entropia consiste nel ridurre tutti gli stati possibili in uno solo,
+                rimuovendo tutta l'entropia da una singola variabile del sistema.
+                Man mano che le celle collassano e il loro stato risulta in una sola opzione l'entropia si riduce per tutte le
+                celle vicine dando la possibilità di fare delle ipotesi e continuare a ridurre le opzioni facendo "collassare" le
+                celle fino ad aver portato l'entropia a zero (tutto è definito).
+                Il processo di risoluzione del sudoku è lo stesso alla base del WFC: si parte da un insieme di tessere,
+                molte delle quali già collassate e si cerca quella con la minore entropia.
+                Trovata la casella con l'entropia più bassa (1) si può continuare cercando progressivamente
+                le caselle con minor entropia fino ad averla portata tutta a zero.
+                Ci sono due modelli con cui affrontare il WFC: "Tile Model" e "Overlapping Model".
+            </p>
+            <!-- Thumbnail sudoku: immagini secondarie sotto il testo, colonna 2 -->
+            <div class="thumbnails">
+                <div class="tessera-box"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
+                <div class="tessera-box"><img src="./immagini_tiles/sudoku_02.png" alt="Sudoku esempio 2"></div>
             </div>
-            <div class="blocco-immagini-destra">
-                            <div class="tessera-box"><img src="./immagini_tiles/sudoku_01.png" alt="Tessera 1"></div>
-                            <div class="tessera-box"><img src="./immagini_tiles/sudoku_02.png" alt="Tessera 1"></div>
-        </section>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
 
-        <section id="tile-model" class="filetto">
-            <div class="titolo-sezione"><h4>Modelli:</h4><h2>Tile model</h2></div>
-            
-            <div class="contenuto-sezione"> 
-                <div class="griglia-layout-split">
-                    <div class="blocco-testo">
-                        <p>
-                            Nel “modello a tessere” l’idea alla base è di partire con delle tessere predefinite,
-                            nella griglia di base ogni tessere può essere posizionata in qualsiasi punto. 
-                            Quando la griglia è vuota l’entropia è uniforme, nel momento in cui riempio un punto l’entropia cambia,
-                            per scegliere la successiva tessera da mettere si deve trovare il punto con meno entropia e si sceglie
-                            randomicamente una fra le opzioni, questo modifica nuovamente l’entropia delle celle vicine.
-                            Procedendo in questo modo si possono generare immagini ogni volta differenti.
-                        </p>
-                    </div>
-                    
-                    <div class="showcase-tile-model">
-                        <div class="colonna-immagini-verticali">
-                            <div class="tessera-box"><img src="./immagini_tiles/tessere_01.png" alt="Tessera 1"></div>
-                            <div class="tessera-box"><img src="./immagini_tiles/tessere_02.png" alt="Tessera 2"></div>
-                            <div class="tessera-box"><img src="./immagini_tiles/tessere_03.png" alt="Tessera 3"></div>
-                            <div class="tessera-box"><img src="./immagini_tiles/tessere_04.png" alt="Tessera 4"></div>
-                            <div class="tessera-box"><img src="./immagini_tiles/tessere_05.png" alt="Tessera 5"></div>
-                        </div>
-
-                        <div class="blocco-immagini-destra">
-                            <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_01.png" alt="Compositions 1"></div>
-                            <div class="composizione-box"><img src="./immagini_tiles/composizioni_tiles_02.png" alt="Compositions 2"></div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 5 — Tile Model
+         Col 2: testo + sotto il testo → thumbnail tessere (immagini secondarie)
+         Col 3: composizioni grandi
+    ═══════════════════════════════════════════ -->
+    <section id="tile-model" class="filetto">
+        <div class="titolo-sezione">
+            <h4>Modelli:</h4>
+            <h2>Tile model</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                Nel "modello a tessere" l'idea alla base è di partire con delle tessere predefinite,
+                nella griglia di base ogni tessera può essere posizionata in qualsiasi punto.
+                Quando la griglia è vuota l'entropia è uniforme, nel momento in cui riempio un punto l'entropia cambia,
+                per scegliere la successiva tessera da mettere si deve trovare il punto con meno entropia e si sceglie
+                randomicamente una fra le opzioni, questo modifica nuovamente l'entropia delle celle vicine.
+                Procedendo in questo modo si possono generare immagini ogni volta differenti.
+            </p>
+            <!-- Thumbnail tessere: immagini secondarie sotto il testo, colonna 2 -->
+            <div class="thumbnails">
+                <div class="tessera-box"><img src="./immagini_tiles/tessere_01.png" alt="Tessera 1"></div>
+                <div class="tessera-box"><img src="./immagini_tiles/tessere_02.png" alt="Tessera 2"></div>
+                <div class="tessera-box"><img src="./immagini_tiles/tessere_03.png" alt="Tessera 3"></div>
+                <div class="tessera-box"><img src="./immagini_tiles/tessere_04.png" alt="Tessera 4"></div>
+                <div class="tessera-box"><img src="./immagini_tiles/tessere_05.png" alt="Tessera 5"></div>
             </div>
-        </section>
-
-        <section class="filetto">
-            <div class="titolo-sezione"><h4>Modelli:</h4><h2>Overlapping model</h2></div>
-            <div class="contenuto-sezione">
-                
-                <div class="griglia-layout-split">
-                    <div class="blocco-testo">
-                        <p>
-                            La caratteristica principale del “overlapping model” è l’assenza di tessere predefinite, 
-                            tutto quello che serve è un’immagine sorgente che l’algoritmo analizzerà e ne ricaverà delle tessere 
-                            per poi osservare come appaiono uno vicino all’altro i pixel nell’ immagine originale e provare a 
-                            creare una nuova immagine con lo stesso stile. In questo caso per creare las tessere l’algoritmo prenderà 
-                            una sezione di tre pixel dal’ immagine e la renderà una tessera (nel caso di un’immagine sorgente di 9x9 
-                            pixel si otterranno poi 81 tessere)
-                            L’overlapping model per creare l’immagine utilizza appunto il metodo della sovrapposizione per trovare l’adiacenze nelle tessere: 
-                            due tessere possono essere adiacenti se, ad esempio, le ultime due colonne della tessera a sinistra si sovrappongono perfettamente 
-                            alle prime due colonne della tessera di destra (lo stesso vale per sinistra, sopra e sotto).
-                        </p>
-                                        <iframe scrolling="no" frameborder="0" height=500 src="./assets/sketches/wfc/"></iframe>
-                    </div>
-                    
-                    <div class="blocco-immagini-destra orizzontale">
-                        <div class="tessera-box-media"><img src="./immagini_overlapping/overlapping_sovrapposizione_01.png" alt="Sovrapposizione 1"></div>
-                        <div class="tessera-box-media"><img src="./immagini_overlapping/overlapping_sovrapposizione_02.png" alt="Sovrapposizione 2"></div>
-                        <div class="tessera-box-rettangolo"><img src="./immagini_overlapping/overlapping_sovrapposizione_03.png" alt="Sovrapposizione 3"></div>
-                    </div>
-                </div>
-
-                <div class="riga-immagini-piccole">
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_01.png" alt="Tessera 1"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_02.png" alt="Tessera 2"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_03.png" alt="Tessera 3"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_04.png" alt="Tessera 4"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_05.png" alt="Tessera 5"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_06.png" alt="Tessera 6"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_07.png" alt="Tessera 7"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_08.png" alt="Tessera 8"></div>
-                    <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_09.png" alt="Tessera 9"></div>
-                </div>
-
+        </div>
+        <!-- Immagini principali: colonna 3 -->
+        <div class="col-immagini">
+            <div class="composizione-box">
+                <img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1">
             </div>
-        </section>
-
-        <section class="filetto">
-            <h4 class="titolo-sezione">Bibliografia</h4>
-            <div class="contenuto-sezione">
-                <ul>
-                    <li><a href="https://www.boristhebrave.com/2020/04/13/wave-function-collapse-explained/" target="_blank">Wave Function Collapse Explained</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=rI_y2GAlQFM&t=604s" target="_blank">Youtube Video 1</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=5iSAvzU2WYY" target="_blank">Youtube Video 2</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" target="_blank">Entropy - Wikipedia</a></li>
-                    <li><a href="https://paulmerrell.org/model-synthesis/" target="_blank">Model Synthesis - Paul Merrell</a></li>
-                </ul>
+            <div class="composizione-box">
+                <img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2">
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script>
-        const sfera = document.getElementById('sfera-cursore');
-        
-        window.addEventListener('mousemove', (e) => {
-            requestAnimationFrame(() => {
-                sfera.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-            });
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 6 — Overlapping Model
+         Col 2: testo + thumbnail tessere overlapping + iframe sketch
+         Col 3: immagini sovrapposizione
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Modelli:</h4>
+            <h2>Overlapping model</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                La caratteristica principale del "overlapping model" è l'assenza di tessere predefinite,
+                tutto quello che serve è un'immagine sorgente che l'algoritmo analizzerà e ne ricaverà delle tessere
+                per poi osservare come appaiono uno vicino all'altro i pixel nell'immagine originale e provare a
+                creare una nuova immagine con lo stesso stile. In questo caso per creare le tessere l'algoritmo prenderà
+                una sezione di tre pixel dall'immagine e la renderà una tessera (nel caso di un'immagine sorgente di 9×9
+                pixel si otterranno poi 81 tessere).
+                L'overlapping model per creare l'immagine utilizza appunto il metodo della sovrapposizione per trovare le adiacenze
+                nelle tessere: due tessere possono essere adiacenti se, ad esempio, le ultime due colonne della tessera a sinistra
+                si sovrappongono perfettamente alle prime due colonne della tessera di destra
+                (lo stesso vale per sinistra, sopra e sotto).
+            </p>
+            <!-- Thumbnail tessere overlapping: immagini secondarie sotto il testo, colonna 2 -->
+            <div class="thumbnails">
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_01.png" alt="Tessera 1"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_02.png" alt="Tessera 2"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_03.png" alt="Tessera 3"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_04.png" alt="Tessera 4"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_05.png" alt="Tessera 5"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_06.png" alt="Tessera 6"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_07.png" alt="Tessera 7"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_08.png" alt="Tessera 8"></div>
+                <div class="tessera-box"><img src="./immagini_overlapping/overlapping_tessere_09.png" alt="Tessera 9"></div>
+            </div>
+            <!-- Iframe sketch: nella colonna del testo, sotto le thumbnail -->
+            <iframe scrolling="no" frameborder="0" height="500" src="./assets/sketches/wfc/"></iframe>
+        </div>
+        <!-- Immagini principali: colonna 3 -->
+        <div class="col-immagini">
+            <div class="composizione-box">
+                <img src="./immagini_overlapping/overlapping_sovrapposizione_01.png" alt="Sovrapposizione 1">
+            </div>
+            <div class="composizione-box">
+                <img src="./immagini_overlapping/overlapping_sovrapposizione_02.png" alt="Sovrapposizione 2">
+            </div>
+            <div class="composizione-box">
+                <img src="./immagini_overlapping/overlapping_sovrapposizione_03.png" alt="Sovrapposizione 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEZIONE 7 — Bibliografia
+    ═══════════════════════════════════════════ -->
+    <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Bibliografia</h4>
+        </div>
+        <div class="contenuto-sezione">
+            <ul>
+                <li><a href="https://www.boristhebrave.com/2020/04/13/wave-function-collapse-explained/" target="_blank">Wave Function Collapse Explained</a></li>
+                <li><a href="https://www.youtube.com/watch?v=rI_y2GAlQFM&t=604s" target="_blank">Youtube Video 1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=5iSAvzU2WYY" target="_blank">Youtube Video 2</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" target="_blank">Entropy - Wikipedia</a></li>
+                <li><a href="https://paulmerrell.org/model-synthesis/" target="_blank">Model Synthesis - Paul Merrell</a></li>
+            </ul>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
+
+</main>
+
+<script>
+    const sfera = document.getElementById('sfera-cursore');
+    window.addEventListener('mousemove', (e) => {
+        requestAnimationFrame(() => {
+            sfera.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
