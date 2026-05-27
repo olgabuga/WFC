@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/main.css">
-    
     <script>
         window.MathJax = {
             tex: {
@@ -71,13 +70,13 @@
                 Il Wave Function Collapse (WFC) è un algoritmo per la generazione procedurale di immagini applicato sia all'arte che ai videogiochi.<br>
                 <br>
                 Il principio alla base di questo algoritmo consiste nel prendere un'immagine di input e a partire da quella generare un'immagine di output
-                di dimensions arbitrarie. La caratteristica distintiva del WFC è che tutte le immagini prodotte in output imitano fedelmente l'immagine di
+                di dimensions arbitrarie. La caratteristica distintiva del WFC is che tutte le immagini prodotte in output imitano fedelmente l'immagine di
                 input nella sua composizione e nelle sue regole geometriche locali.<br>
-    
+                <br>
                 Il primo esempio di questo tipo di algoritmo è stato descritto da Paul Merrell, che lo ha definito
                 'sintesi del modello' per primo nel suo documento i3D del 2007. Il nome 'collasso della funzione d'onda' in
                 seguito è diventato il nome popolare per una variante di quell'algoritmo, dopo che
-                un'implementazione di Maxim Gumin è stata pubblicata nel 2016 su un GitHub repository con quel nome. <br>
+                un'implementazione di Maxim Gumin è stata pubblicata nel 2016 su un GitHub repository con quel nome.<br>
                 <br>
                 Il WFC non esegue calcoli di fisica quantistica; mutua semplicemente la terminologia 
                 della meccanica quantistica per descrivere un processo puramente informatico di soddisfacimento di vincoli.
@@ -94,7 +93,7 @@
         <div class="contenuto-sezione">
             <p>
                 Per comprendere a fondo l'invenzione di Paul Merrell del 2007, la Model Synthesis (Sintesi del Modello), dobbiamo
-                calarmi nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (come intere
+                calarmi nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (como intere
                 città o labirinti) richiedeva o un lavoro manuale immenso da parte degli artisti, o formule matematiche rigide
                 che però faticavano a creare strutture architettoniche sensate.<br>
                 <br>
@@ -125,7 +124,7 @@
                 3. In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br>
                 <br>
                 La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
-                un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
+                un simple esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
                 tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.<br>
             </p>
         </div>
@@ -166,7 +165,7 @@
                 L'Scaltro dell'Entropia come Guida:<br>
                 <br>
                 Prima di Gumin, i tentativi di risoluzione di questi problemi procedevano in modo lineare 
-                (come lo scanline di Merrell) o totalmente casuale. Gumin ha capito che per minimizzare i fallimenti e ottimizzare i tempi di calcolo, 
+                (como lo scanline di Merrell) o totalmente casuale. Gumin ha capito che per minimizzare i fallimenti e ottimizzare i tempi di calcolo, 
                 l'algoritmo doveva analizzare la mappa e far collassare sempre la cella con la minore entropia di Shannon (ovvero la cella più 
                 instabile e con meno scelte legali rimaste).<br>
             </p>
@@ -184,16 +183,14 @@
                 L'entropia misura la quantità di incertezza, casualità o sorpresa associata a una variabile casuale: più un evento è 
                 imprevedibile, maggiore è la sua entropia. Se un evento è matematicamente certo, la sua entropia è pari a zero.
             </p>
-            
             <p>
                 Nel campo della teoria dell'informazione, questo concetto viene quantificato attraverso la formula dell'<strong>Entropia di Shannon</strong>:
             </p>
-            
-<div class="formula-shannon-container">
-    <img src="./formula png.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
-</div>
-
+            <div class="formula-shannon-container">
+                <img src="./formula png.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
+            </div>
             <p>
+                <br>
                 H(X): È il valore finale dell'entropia per la cella X. Indica quanto è "caotica" o incerta quella specifica posizione in quel
                 momento.<br>
                 <br>
@@ -202,31 +199,31 @@
                 <br>  
                 P(xi): È la probabilità di uscita del singolo tassello xi. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
                 ovvero su quante volte quel tassello o quel pattern di pixel appare nell'immagine di input originale.<br>
-                 <br>   
+                <br>   
                 log2 P(xi): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
                 Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logaritmo di 1 diventa 0, azzerando l'intera equazione.<br>
                 <br>
             </p>
             <p>
                 Il termine collasso, nel concetto dell'entropia, consiste proprio nel ridurre tutti gli stati possibili in uno solo,
-                 rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
-                 cella a scegliere una sola opzione tra quelle rimaste, la probabilità
-                  di quel tassello diventa il 100% (P = 1) e l'entropia di quella cella crolla a zero.<br>
-                  <br>
-                  Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
-                  scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
-                   logiche e continuare a ridurre le opzioni. L'algoritmo fa "collassare" progressivamente le celle a catena fino ad aver 
-                   portato l'entropia di tutto il sistema a zero, momento in cui l'immagine di output è completamente definita e stabile.<br>
-                   <br>
-                   Sudoku:<br>
-                   <br>
-                   Il processo di risoluzione del Sudoku è lo stesso identico meccanismo alla base del WFC. Si parte da una griglia in cui è 
-                   presente un insieme di tessere, molte delle quali già collassate (i numeri già scritti all'inizio del gioco). Le caselle 
-                   vuote rappresentano invece celle in uno stato di "superposizione", dove potenzialmente possono comparire i numeri da 1 a 9 
-                   (entropia alta).<br>
-                   <br>
-                    Per risolvere il gioco, non si tirano i dadi: si cerca la casella con la minore entropia, ovvero quella casella vuota che, 
-                    a causa dei vincoli della sua riga, colonna o riquadro, ha il minor numero di numeri possibili rimasti.
+                rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
+                cella a scegliere una sola opzione tra quelle rimaste, la probabilità
+                di quel tassello diventa il 100% (P = 1) e l'entropia di quella cella crolla a zero.<br>
+                <br>
+                Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
+                scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
+                logiche e continuare a ridurre le opzioni. L'algoritmo fa "collassare" progressivamente le celle a catena fino ad aver 
+                portato l'entropia di tutto il sistema a zero, momento in cui l'immagine di output è completamente definita e stabile.<br>
+                <br>
+                Sudoku:<br>
+                <br>
+                Il processo di risoluzione del Sudoku è lo stesso identico meccanismo alla base del WFC. Si parte da una griglia in cui è 
+                presente un insieme di tessere, molte delle quali già collassate (i numeri già scritti all'inizio del gioco). Le caselle 
+                vuote rappresentano invece celle in uno stato di "superposizione", dove potenzialmente possono comparire i numeri da 1 a 9 
+                (entropia alta).<br>
+                <br>
+                Per risolvere il gioco, non si tirano i dadi: si cerca la casella con la minore entropia, ovvero quella casella vuota che, 
+                a causa dei vincoli della sua riga, colonna o riquadro, ha il minor numero di numeri possibili rimasti.
             </p>
             <div class="thumbnails">
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/sudoku_01.png" alt="Sudoku esempio 1"></div>
@@ -236,7 +233,7 @@
         <div class="col-immagini"></div>
     </section>
 
-<section id="tile-model" class="filetto">
+    <section id="tile-model" class="filetto">
         <div class="titolo-sezione">
             <h4>Modelli:</h4>
             <h2>Tile model</h2>
@@ -247,7 +244,6 @@
                     Esempio Tile Model &rarr;
                 </a>
             </p>
-            
             <p>
                 Nel "modello a tessere" l'idea alla base è di partire con delle tessere predefinite,
                 nella griglia di base ogni tessera può essere posizionata in qualsiasi punto.
@@ -263,12 +259,10 @@
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_04.png" alt="Tessera 4"></div>
                 <div class="tessera-box"><img src="./immagini_tiles/tessere_05.png" alt="Tessera 5"></div>
             </div>
-            
             <div class="thumbnails">
-                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/entropia_01.png" alt="Sudoku esempio 1"></div>
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/entropia_02.png" alt="Sudoku esempio 2"></div>
+                <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/entropia_01.png" alt="Sudoku esempio 1"></div>
             </div>
-
             <div class="thumbnails">
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/composizioni_tiles_01.png" alt="Composizione tiles 1"></div>
                 <div class="tessera-box tessera-box--sudoku"><img src="./immagini_tiles/composizioni_tiles_02.png" alt="Composizione tiles 2"></div>
@@ -291,7 +285,6 @@
                     Esempio Overlapping Model Interattivo &rarr;
                 </a>
             </p>
-
             <p>
                 La caratteristica principale del "overlapping model" è l'assenza di tessere predefinite,
                 tutto quello che serve è un'immagine sorgente che l'algoritmo analizza e ne ricava a sua volta delle tessere
