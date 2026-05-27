@@ -76,6 +76,53 @@
         <div class="col-immagini"></div>
     </section>
 
+        <section class="filetto">
+        <div class="titolo-sezione">
+            <h4>Implementazioni:</h4>
+            <h2>Paul Merrell</h2>
+        </div>
+        <div class="contenuto-sezione">
+            <p>
+                Per comprendere a fondo l'invenzione di Paul Merrell del 2007, la Model Synthesis (Sintesi del Modello), dobbiamo
+                calarci nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (come intere
+                città o labirinti) richiedeva o un lavoro manuale immenso da parte degli artisti, o formule matematiche rigide
+                che però faticavano a creare strutture architettoniche sensate.<br>
+                <br>
+                L'algoritmo riceve in input un piccolo modello 3D d'esempio (chiamato modello esemplare), composto da blocchi geometrici
+                 (i  tasselli 3D) adiacenti l'uno all'altro. L'algoritmo analizza questo esempio e compila una lista di regole rigide.
+                  Ad esempio:<br>
+<br>
+Il blocco "Tetto" può stare solo sopra al blocco "Muro".<br>
+Il blocco "Porta" deve avere il blocco "Pavimento" sotto e "Muro" ai lati.<br>
+<br>
+Una volta apprese queste regole, l'algoritmo tenta di riempire un volume 3D vuoto molto più grande, incastrando i blocchi in modo che
+nessuna regola di vicinato venga mai violata.
+Merrell ha introdotto un approccio scanline (linea di scansione). L'algoritmo si muove nello spazio in modo ordinato e sequenziale, 
+come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in modo prevedibile e ordinato, l'algoritmo riduce
+ drasticamente i calcoli necessari per verificare l'intera mappa. Merrell dimostrò che questo riduceva il "tasso di insuccesso"
+  (ovvero la probabilità che l'algoritmo si blocchi senza sapere cosa mettere), poiché i vincoli venivano risolti linearmente un
+   pezzo alla volta.<br>
+<br>
+   Un altro enorme contributo di Merrell, fondamentale per la grafica moderna, è l'elaborazione in blocchi (chunks). Se provassimo
+    a generare una città immensa tutta in una volta (approccio all-at-once), la memoria del computer si saturerebbe e un singolo
+     errore strutturale a un'estremità della mappa costringerebbe l'algoritmo a cancellare l'intera città e ricominciare da capo. 
+     Merrell ha risolto il problema dividendo lo spazio in una scacchiera di macro-blocchi indipendenti:<br>
+<br>
+1.  L'algoritmo genera il Blocco A.<br>
+<br>
+2.  Quando passa al Blocco B (adiacente al Blocco A), usa i confini finali del Blocco A come vincoli di partenza (input).<br>
+<br>
+3.  In questo modo, i blocchi si incastrano perfettamente l'uno con l'altro come pezzi di un puzzle, ma il computer deve calcolarne solo uno alla volta.<br>
+<br>
+La Model Synthesis di Paul Merrell ha dimostrato per la prima volta che era possibile automatizzare la creazione di architetture complesse partendo da
+ un semplice esempio. Se oggi nei videogiochi moderni possiamo esplorare città infinite generate proceduralmente le cui case hanno finestre, porte e 
+ tetti posizionati nei punti corretti (e non fluttuanti nel vuoto), lo dobbiamo alla logica dei vincoli geometrici introdotta da Merrell nel 2007.
+
+            </p>
+        </div>
+        <div class="col-immagini"></div>
+    </section>
+
     <section class="filetto">
         <div class="titolo-sezione">
             <h4>Implementazioni:</h4>
@@ -89,25 +136,6 @@
                 4. Si ripetono i seguenti passaggi: controlla che tutte le celle siano ancora valide e segui le regole<br>
                 5. Una volta che tutte le celle sono 'collassate' in uno stato definito, restituire l'output.<br>
                 Se l'output è illegale, scartalo e ripeti il processo fino a quando non sarà legale.
-            </p>
-        </div>
-        <div class="col-immagini"></div>
-    </section>
-
-    <section class="filetto">
-        <div class="titolo-sezione">
-            <h4>Implementazioni:</h4>
-            <h2>Paul Merrell</h2>
-        </div>
-        <div class="contenuto-sezione">
-            <p>
-                La precedente implementazione di Merrell è sostanzialmente la stessa di Gumin con alcune piccole differenze.
-                Nella versione di Merrell, non è necessario selezionare la cella con il minor numero di possibili stati di uscita
-                per il collasso. Viene invece adottato un approccio scanline. Secondo Merrell, ciò si traduce in un valore
-                inferiore tasso di insuccesso del modello senza alcun effetto negativo sulla qualità. Alcuni commentatori hanno
-                notato tuttavia che l'approccio della linea di scansione al 'collasso' tende a provocare artefatti direzionali.
-                L'approccio di Merrell esegue l'algoritmo in blocchi, piuttosto che all-at-once. Questo approccio riduce
-                notevolmente il tasso di guasto per molti modelli complessi di grandi dimensioni; soprattutto in uno spazio 3D.
             </p>
         </div>
         <div class="col-immagini"></div>
