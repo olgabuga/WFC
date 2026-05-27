@@ -190,7 +190,7 @@
             </p>
             
 <div class="formula-shannon-container">
-    <img src="./formula png.svg.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
+    <img src="./formula png.svg" alt="Formula dell'Entropia di Shannon" class="formula-svg">
 </div>
 
             <p>
@@ -200,10 +200,10 @@
                 n: È il numero di stati o tessere ancora possibili e valide per quella cella. All'inizio del processo, n è molto alto;
                 man mano che si applicano i vincoli, n si riduce.<br>
                 <br>  
-                P(x_i): È la probabilità di uscita del singolo tassello x_i. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
+                P(xi): È la probabilità di uscita del singolo tassello xi. Questa probabilità non è casuale, ma è basata sul "peso statistico", 
                 ovvero su quante volte quel tassello o quel pattern di pixel appare nell'immagine di input originale.<br>
                  <br>   
-                log_2 P(x_i): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
+                log2 P(xi): Il logaritmo in base 2 serve a misurare la quantità di informazione in "bit".
                 Dal punto di vista matematico, quando una scelta diventa certa (P = 1), il logaritmo di 1 diventa 0, azzerando l'intera equazione.<br>
                 <br>
             </p>
@@ -211,7 +211,7 @@
                 Il termine collasso, nel concetto dell'entropia, consiste proprio nel ridurre tutti gli stati possibili in uno solo,
                  rimuovendo istantaneamente tutta l'entropia da una singola variabile del sistema. Quando l'algoritmo costringe una 
                  cella a scegliere una sola opzione tra quelle rimaste, la probabilità
-                  di quel tassello diventa il 100% (P=1) e l'entropia di quella cella crolla a zero.<br>
+                  di quel tassello diventa il 100% (P = 1) e l'entropia di quella cella crolla a zero.<br>
                   <br>
                   Man mano che le celle collassano e il loro stato risulta in una sola opzione, l'entropia si riduce per tutte le celle vicine. Questo accade perché la 
                   scelta fatta elimina le combinazioni incompatibili nei paraggi, dando all'algoritmo la possibilità di fare delle ipotesi
@@ -280,14 +280,14 @@
         <div class="contenuto-sezione">
             <p>
                 La caratteristica principale del "overlapping model" è l'assenza di tessere predefinite,
-                tutto quello che serve è un'immagine sorgente che l'algoritmo analizzerà e ne ricaverà a sua volta delle tessere
+                tutto quello che serve è un'immagine sorgente che l'algoritmo analizza e ne ricava a sua volta delle tessere
                 per poi osservare come appaiono uno vicino all'altro i pixel nell'immagine originale e provare a
                 creare una nuova immagine con lo stesso stile.
-                In questo caso per creare le tessere l'algoritmo analizza l'immagine e la seziona in sotto-matrici quadrate di dimensione N X N px 
+                In questo caso per creare le tessere l'algoritmo analizza, l'immagine e la seziona, in sotto-matrici quadrate di dimensione N X N px 
                  (solitamente 2 X 2 o 3 X 3) e le rende delle tessera (nel caso di un'immagine sorgente di 9×9
                 pixel si otterranno poi 81 tessere).<br>
                 <br>
-                L'overlapping model per creare l'immagine utilizza appunto il metodo della sovrapposizione per trovare le adiacenze
+                L'overlapping model utilizza per creare l'immagine il metodo della sovrapposizione per trovare le adiacenze
                 nelle tessere: due tessere possono essere adiacenti se, ad esempio, le ultime due colonne della tessera a sinistra
                 si sovrappongono perfettamente alle prime due colonne della tessera di destra
                 (lo stesso vale per sinistra, sopra e sotto).
