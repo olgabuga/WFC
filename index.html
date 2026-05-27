@@ -53,7 +53,10 @@
             <h1>Wave Function Collapse</h1>
         </div>
         <div class="contenuto-sezione contenuto-header">
-            <p>Buga Olga e Callegari Giulia<br>
+            <p>
+                <br>
+                Buga Olga e Callegari Giulia
+                <br>
                 Matematica per il design - A.A. 2025/2026
             </p>
             <a href="https://github.com/made-isia/2026#gruppi-di-lavoro-e-progetti" target="_blank" rel="noopener noreferrer" class="link-github-header">Progetti</a>
@@ -67,19 +70,18 @@
         </div>
         <div class="contenuto-sezione">
             <p>
-                Il Wave Function Collapse (WFC) è un algoritmo per la generazione procedurale di immagini applicato sia all'arte che ai videogiochi.<br>
+                Il <strong>Wave Function Collapse (WFC)</strong> è un algoritmo per la generazione procedurale di immagini applicato sia all'arte che ai videogiochi.<br>
                 <br>
-                Il principio alla base di questo algoritmo consiste nel prendere un'immagine di input e a partire da quella generare un'immagine di output
-                di dimensions arbitrarie. La caratteristica distintiva del WFC is che tutte le immagini prodotte in output imitano fedelmente l'immagine di
+                Il principio alla base di questo algoritmo consiste nel prendere un'immagine di <strong>input</strong> e a partire da quella generare un'immagine di <strong>output</strong>
+                di dimensioni arbitrarie. La caratteristica distintiva del WFC è che tutte le immagini prodotte in output imitano fedelmente l'immagine di
                 input nella sua composizione e nelle sue regole geometriche locali.<br>
                 <br>
-                Il primo esempio di questo tipo di algoritmo è stato descritto da Paul Merrell, che lo ha definito
+                Il primo esempio di questo tipo di <strong>algoritmo</strong>algoritmo è stato descritto da Paul Merrell, che lo ha definito
                 'sintesi del modello' per primo nel suo documento i3D del 2007. Il nome 'collasso della funzione d'onda' in
                 seguito è diventato il nome popolare per una variante di quell'algoritmo, dopo che
                 un'implementazione di Maxim Gumin è stata pubblicata nel 2016 su un GitHub repository con quel nome.<br>
                 <br>
-                Il WFC non esegue calcoli di fisica quantistica; mutua semplicemente la terminologia 
-                della meccanica quantistica per descrivere un processo puramente informatico di soddisfacimento di vincoli.
+                Il WFC non esegue <strong>calcoli</strong> di fisica quantistica ma usa un processo puramente informatico di soddisfacimento dei vincoli.
             </p>
         </div>
         <div class="col-immagini"></div>
@@ -92,21 +94,21 @@
         </div>
         <div class="contenuto-sezione">
             <p>
-                Per comprendere a fondo l'invenzione di Paul Merrell del 2007, la Model Synthesis (Sintesi del Modello), dobbiamo
+                Per comprendere a fondo l'invenzione di <strong>Paul Merrell</strong> del 2007, la Model Synthesis (Sintesi del Modello), dobbiamo
                 calarmi nel contesto della computer grafica dell'epoca. Fino a quel momento, generare grandi mondi 3D (como intere
                 città o labirinti) richiedeva o un lavoro manuale immenso da parte degli artisti, o formule matematiche rigide
                 che però faticavano a creare strutture architettoniche sensate.<br>
                 <br>
                 L'algoritmo riceve in input un piccolo modello 3D d'esempio (chiamato modello esemplare), composto da blocchi geometrici
-                (i tasselli 3D) adiacenti l'uno all'altro. L'algoritmo analizza questo esempio e compila una lista di regole rigide.
+                (i tasselli 3D) adiacenti l'uno all'altro. L'algoritmo analizza questo esempio e compila una lista di <strong>regole rigide.</strong>
                 Ad esempio:<br>
                 <br>
-                Il blocco "Tetto" può stare solo sopra al blocco "Muro".<br>
-                Il blocco "Porta" deve avere il blocco "Pavimento" sotto e "Muro" ai lati.<br>
+                Il blocco <strong>"Tetto"</strong> può stare solo sopra al blocco <strong>"Muro".</strong><br>
+                Il blocco <strong>"Porta"</strong> deve avere il blocco <strong>"Pavimento"</strong> sotto e <strong>"Muro"</strong> ai lati.<br>
                 <br>
                 Una volta apprese queste regole, l'algoritmo tenta di riempire un volume 3D vuoto molto più grande, incastrando i blocchi in modo che
-                nessuna regola di vicinato venga mai violata.
-                Merrell ha introdotto un approccio scanline (linea di scansione). L'algoritmo si muove nello spazio in modo ordinato e sequenziale, 
+                <strong>nessuna regola di vicinato venga mai violata.</strong>
+                Merrell ha introdotto un approccio <strong>scanline</strong> (linea di scansione). L'algoritmo si muove nello spazio in modo ordinato e sequenziale, 
                 come una stampante 3D: procede riga per riga, strato dopo strato. Muovendosi in modo prevedibile e ordinato, l'algoritmo riduce
                 drasticamente i calcoli necessari per verificare l'intera mappa. Merrell dimostrò che questo riduceva il "tasso di insuccesso"
                 (ovvero la probabilità che l'algoritmo si blocchi senza sapere cosa mettere), poiché i vincoli venivano risolti linearmente un
